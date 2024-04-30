@@ -1,0 +1,40 @@
+Author:
+    name
+    birth_date
+    country
+    picture
+
+
+Genre:
+    name
+
+
+Book:
+    title
+    authors
+    pages
+    genre
+    date_published
+    description
+    language
+    price
+    quantity
+    image
+    paper_format
+    cover
+
+
+Order:
+    name
+    created_at
+    updated_at
+    status:
+        new
+        ready
+        waiting
+        delivered
+        cancelled
+    address
+    city
+    phone_number
+    

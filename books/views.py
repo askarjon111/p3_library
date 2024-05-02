@@ -17,6 +17,8 @@ def index_view(request):
 def book_details(request, pk):
     book = Book.objects.get(id=pk)
     form = OrderForm(initial={'book': book})
+    field = form.fields['book']
+    field.widget = field.hidden_widget()
     return render(request, 'book-details.html', {'book': book, 'form': form})
 
 

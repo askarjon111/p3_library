@@ -90,13 +90,13 @@
         <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="thumb">
-              <a href="product-details.html"><img src="{{ book.image.url }}" alt=""></a>
+              <a href="{% url 'book_details' book.id %}"><img src="{{ book.image.url }}" alt=""></a>
               <span class="price">UZS {{ book.price }}</span>
             </div>
             <div class="down-content">
               <span class="category">{% for genre in book.genres_set %}{{ genre.name }}{% endfor %}</span>
               <h4>{{ book.title }}</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+              <a href="{% url 'book_details' book.id %}"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
@@ -124,12 +124,12 @@
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="item">
             <div class="thumb">
-              <a href="product-details.html"><img src="{{ book.image.url }}" alt=""></a>
+              <a href="{% url 'book_details' book.id %}"><img src="{{ book.image.url }}" alt=""></a>
             </div>
             <div class="down-content">
                 <span class="category">{% for genre in book.genres_set.all %}{{ genre.name }}{% endfor %}</span>
                 <h4>{{ book.title }}</h4>
-                <a href="product-details.html">Batafsil</a>
+                <a href="{% url 'book_details' book.id %}">Batafsil</a>
             </div>
           </div>
         </div>

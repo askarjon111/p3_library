@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %} - {{ book.title }}{% endblock title %}
 {% block banner %}
 <div class="page-heading header-text">
     <div class="container">
@@ -25,7 +26,7 @@
         <h4>{{ book.title }}</h4>
         <span class="price">UZS {{ book.price }}</span>
         <p>{{ book.description }}</p>
-        <form id="qty" action="{% url 'new_order' book.id %}" method='POST'>
+        <form action="{% url 'new_order' book.id %}" method='POST'>
             {% csrf_token %}
             {{ form.as_p }}
         <button type="submit"><i class="fa fa-shopping-bag"></i> Buyurtma berish</button>

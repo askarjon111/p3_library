@@ -83,7 +83,7 @@
         </div>
         <div class="col-lg-6">
           <div class="main-button">
-            <a href="shop.html">Barchasi</a>
+            <a href="{% url 'shop' %}">Barchasi</a>
           </div>
         </div>
         {% for book in on_trend %}
@@ -111,87 +111,29 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="section-heading">
-            <h6>TOP GAMES</h6>
-            <h2>Most Played</h2>
+            <h6>TOP KITOBLAR</h6>
+            <h2>Eng ko'p o'qilgan</h2>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="main-button">
-            <a href="shop.html">View All</a>
+            <a href="shop.html">Barchasi</a>
           </div>
         </div>
+        {% for book in top_books %}
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="item">
             <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-01.jpg" alt=""></a>
+              <a href="product-details.html"><img src="{{ book.image.url }}" alt=""></a>
             </div>
             <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
+                <span class="category">{% for genre in book.genres_set.all %}{{ genre.name }}{% endfor %}</span>
+                <h4>{{ book.title }}</h4>
+                <a href="product-details.html">Batafsil</a>
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-02.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-03.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-04.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-05.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-06.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -201,50 +143,20 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <div class="section-heading">
-            <h6>Categories</h6>
-            <h2>Top Categories</h2>
+            <h6>Yo'nalishlar</h6>
+            <h2>Barcha Janrlar</h2>
           </div>
         </div>
+        {% for genre in genres %}
         <div class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Action</h4>
+            <h4>{{ genre.name }}</h4>
             <div class="thumb">
               <a href="product-details.html"><img src="assets/images/categories-01.jpg" alt=""></a>
             </div>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-03.jpg" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-04.jpg" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

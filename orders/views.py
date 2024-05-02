@@ -6,10 +6,8 @@ from orders.forms import OrderForm
 
 def new_order(request, pk):
     if request.method == 'POST':
-        form = OrderForm(request.POST, pk=pk)
+        form = OrderForm(request.POST)
         if form.is_valid():
-            # book = Book.objects.get(id=pk)
-            # form.data['book'] = book
             form.save()
         else:
             print('test')

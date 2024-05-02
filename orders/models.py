@@ -31,7 +31,7 @@ class Order(models.Model):
     )
 
     name = models.CharField(max_length=200)
-    book = models.ForeignKey(Book, on_delete=models.SET_NULL, blank=True, null=True)
+    book = models.ForeignKey(Book, on_delete=models.SET_NULL, blank=True, null=True, related_name='orders')
     status = models.CharField(max_length=9, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     address = models.CharField(max_length=500)
     city = models.CharField(max_length=17, choices=CITIES)

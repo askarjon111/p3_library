@@ -11,7 +11,7 @@ def new_order(request, pk):
             form.save()
         else:
             print('test')
-            
+
     else:
         print('get request keldi')
     return redirect('home')

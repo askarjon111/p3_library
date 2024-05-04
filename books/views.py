@@ -26,3 +26,11 @@ def shop_view(request):
     on_trend = Book.objects.filter(on_trend=True)
 
     return render(request, 'shop.html', {'on_trend': on_trend})
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')

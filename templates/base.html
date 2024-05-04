@@ -57,12 +57,12 @@ https://templatemo.com/tm-589-lugx-gaming
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="{% url 'home' %}" class="active">Bosh sahifa</a></li>
-                      <li><a href="{% url 'shop' %}">Kitoblar</a></li>
-                      <li><a href="product-details.html">Biz haqimizda</a></li>
-                      <li><a href="contact.html">Aloqa</a></li>
+                      <li><a href="{% url 'home' %}" class="{% block index %}{% endblock index %}">Bosh sahifa</a></li>
+                      <li><a href="{% url 'shop' %}" class="{% block shop %}{% endblock shop %}">Kitoblar</a></li>
+                      <li><a href="{% url 'about' %}" class="{% block about %}{% endblock about %}">Biz haqimizda</a></li>
+                      <li><a href="{% url 'contact' %}" class="{% block contact %}{% endblock contact %}">Aloqa</a></li>
                       <li><a href="#">Kirish</a></li>
-                  </ul>   
+                  </ul>
                     <a class='menu-trigger'>
                         <span>Menyu</span>
                     </a>
@@ -88,7 +88,7 @@ https://templatemo.com/tm-589-lugx-gaming
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p>
+        <p>Copyright © 2024 Livebooks.uz. Barcha huquqlar himoya qilingan. &nbsp;&nbsp; <a rel="nofollow" href="https://livebooks.uz" target="_blank">Komanda: Farobiy Python talabalari</a></p>
       </div>
     </div>
   </footer>

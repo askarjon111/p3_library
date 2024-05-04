@@ -1,7 +1,6 @@
-from typing import Any
 from django.shortcuts import render
 from django.db.models import Count
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from books.models import Book, Genre
 from orders.forms import OrderForm
@@ -38,15 +37,15 @@ def book_details(request, pk):
     return render(request, 'book-details.html', {'book': book, 'form': form})
 
 
-def shop_view(request):
-    on_trend = Book.objects.filter(on_trend=True)
-
-    return render(request, 'shop.html', {'on_trend': on_trend})
-
-
-def about(request):
-    return render(request, 'about.html')
+class ShopView(ListView):
+    model = Book
+    template_name = 'shop.html'
+    context_object_name = 'books'
 
 
-def contact(request):
-    return render(request, 'contact.html')
+class AboutView(TemplateView):
+    template_name = 'about.html'
+
+
+class ContactView(TemplateView):
+    template_name = 'contact.html'

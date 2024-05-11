@@ -16,16 +16,3 @@ def new_order(request, pk):
     else:
         print('get request keldi')
     return redirect('home')
-
-
-
-def index_view(request):
-    tasks = Task.objects.all()
-    form = OrderForm()
-    if request.method == 'POST':
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            form.save()
-        else:
-            print(form.errors)
-    return render(request, 'index.html', {'tasks': tasks, 'form': form})

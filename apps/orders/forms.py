@@ -1,7 +1,7 @@
 from django import forms
 
-from books.models import Book
-from orders.models import Order
+from apps.books.models import Book
+from apps.orders.models import Order
 
 
 class OrderForm(forms.ModelForm):

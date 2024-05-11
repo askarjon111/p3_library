@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 
-from books.models import Book
-from orders.forms import OrderForm
-from orders.models import Task
+from apps.books.models import Book
+from apps.orders.forms import OrderForm
+
 
 
 def new_order(request, pk):

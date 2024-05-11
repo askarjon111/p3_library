@@ -61,7 +61,10 @@ https://templatemo.com/tm-589-lugx-gaming
                       <li><a href="{% url 'shop' %}" class="{% block shop %}{% endblock shop %}">Kitoblar</a></li>
                       <li><a href="{% url 'about' %}" class="{% block about %}{% endblock about %}">Biz haqimizda</a></li>
                       <li><a href="{% url 'contact' %}" class="{% block contact %}{% endblock contact %}">Aloqa</a></li>
-                      <li><a href="#">Kirish</a></li>
+                      {% if request.user.is_authenticated %}
+                      <li><a href="#">{{ request.user.username }}</a></li>
+                      {% else %}<li><a href="{% url 'login' %}">Kirish</a></li>
+                      {% endif %}
                   </ul>
                     <a class='menu-trigger'>
                         <span>Menyu</span>

@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.db.models import Count
 from django.views.generic import TemplateView, ListView, DetailView
 
-from books.models import Book, Genre
-from orders.forms import OrderForm
+from apps.books.models import Book, Genre
+from apps.orders.forms import OrderForm
 
 
 class IndexView(TemplateView):

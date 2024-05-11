@@ -1,6 +1,6 @@
 from django.db import models
 
-from books.models import Book
+from apps.books.models import Book
 
 
 class Order(models.Model):

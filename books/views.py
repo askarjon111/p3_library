@@ -1,19 +1,10 @@
+from typing import Any
 from django.shortcuts import render
 from django.db.models import Count
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from books.models import Book, Genre
 from orders.forms import OrderForm
-
-
-def index_view(request):
-    books_on_trend = Book.objects.filter(on_trend=True)
-    top_books = Book.objects.all().annotate(
-        order_count=Count('orders')
-    ).order_by('order_count')
-    genres = Genre.objects.all()
-
-    return render(request, 'index.html', {'on_trend': books_on_trend, 'top_books': top_books, 'genres': genres})
 
 
 class IndexView(TemplateView):
@@ -29,12 +20,17 @@ class IndexView(TemplateView):
         return context
 
 
-def book_details(request, pk):
-    book = Book.objects.get(id=pk)
-    form = OrderForm(initial={'book': book})
-    field = form.fields['book']
-    field.widget = field.hidden_widget()
-    return render(request, 'book-details.html', {'book': book, 'form': form})
+class BookDetailView(DetailView):
+    model = Book
+    template_name = 'book-details.html'
+    context_object_name = 'book'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = OrderForm(initial={'book': context['book']})
+        field = context['form'].fields['book']
+        field.widget = field.hidden_widget()
+        return context
 
 
 class ShopView(ListView):

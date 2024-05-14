@@ -2,7 +2,9 @@ from typing import Any
 from django.shortcuts import render
 from django.db.models import Count
 from django.views.generic import TemplateView, ListView, DetailView
+from django_filters.views import FilterView
 
+from apps.books.filters import BookFilter
 from apps.books.models import Book, Genre
 from apps.orders.forms import OrderForm
 
@@ -12,7 +14,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['on_trend'] = Book.objects.filter(on_trend=True)
+        context['on_trend'] = Book.objects.filter(on_trend=True).order_by('-id')
         context['top_books'] = Book.objects.all().annotate(
             order_count=Count('orders')
         ).order_by('order_count')
@@ -33,10 +35,12 @@ class BookDetailView(DetailView):
         return context
 
 
-class ShopView(ListView):
+class ShopView(FilterView):
     model = Book
     template_name = 'shop.html'
     context_object_name = 'books'
+    filterset_class = BookFilter
+    paginate_by = 1
 
 
 class AboutView(TemplateView):

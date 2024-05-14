@@ -34,10 +34,13 @@ ALLOWED_HOSTS = ['livebooks.uz', 'books.gymbro.uz', '137.184.114.36', '127.0.0.1
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
-    "django.contrib.contenttypes",
+   # libraries
+    "django_filters", "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    # local apps
     "apps.books",
     "apps.orders",
     "apps.accounts",

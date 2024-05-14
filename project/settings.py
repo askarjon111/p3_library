@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-!_8&7p!3_)x5t^vbwsseu&_5p^os_!iz7v_u#0a)%v0c2oh+is
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['livebooks.uz', 'books.gymbro.uz', '137.184.114.36']
+ALLOWED_HOSTS = ['livebooks.uz', 'books.gymbro.uz', '137.184.114.36', '127.0.0.1', 'localhost']
 
 
 # Application definition

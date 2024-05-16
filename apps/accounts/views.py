@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordResetForm
 from django.contrib import messages
 from django.urls import reverse_lazy
 
@@ -35,3 +35,8 @@ def register_user(request):
         else:
             messages.add_message(request, messages.WARNING, form.errors)
     return render(request, 'register.html', {'form': form})
+
+
+# Authentication
+# Authorisation
+# Permission

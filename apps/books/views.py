@@ -2,6 +2,7 @@ from typing import Any
 from django.shortcuts import redirect, render
 from django.db.models import Count
 from django.views.generic import TemplateView, DetailView, CreateView
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django_filters.views import FilterView
 
 from apps.books.filters import BookFilter
@@ -51,11 +52,12 @@ class AboutView(TemplateView):
 class ContactView(TemplateView):
     template_name = 'contact.html'
 
-
-class CreateBookView(CreateView):
+# from django.contrib.auth.mixins import PermissionRequiredMixin
+class CreateBookView(PermissionRequiredMixin, CreateView):
     model = Book
     template_name = 'book-create.html'
     form_class = BookCreateForm
+    permission_required = 'book.add_book'
 
     def post(self, request, *args, **kwargs):
         form = BookCreateForm(request.POST, request.FILES)

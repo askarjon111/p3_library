@@ -62,7 +62,7 @@ https://templatemo.com/tm-589-lugx-gaming
                       <li><a href="{% url 'about' %}" class="{% block about %}{% endblock about %}">Biz haqimizda</a></li>
                       <li><a href="{% url 'contact' %}" class="{% block contact %}{% endblock contact %}">Aloqa</a></li>
                       {% if request.user.is_authenticated %}
-                      <li><a href="#">{{ request.user.username }}</a></li>
+                      <li><a href="{% url 'book_create' %}"><i class="fa-solid fa-plus"></i></a></li>
                       <li><a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                       {% else %}
                       <li><a href="{% url 'login' %}">Kirish</a></li>

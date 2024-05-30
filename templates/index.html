@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load static %}
 {% block index %}active{% endblock index %}
@@ -9,9 +10,9 @@
       <h2>SIZ QIDIRGAN KITOB DO'KONI!</h2>
       <p>Bizning saytimizda o'zingizga yoqqan kitoblarni hamyonbop narxlarda topishingiz va sotib olishingiz mumkin.</p>
       <div class="search-input">
-        <form id="search" action="#">
-          <input type="text" placeholder="Nima qidirmoqdasiz?" id='searchText' name="searchKeyword" onkeypress="handle" />
-          <button role="button">Qidirish</button>
+        <form id="search" action="{% url 'shop' %}">
+          <input type="text" placeholder="Nima qidirmoqdasiz?" id='searchText' name="search" onkeypress="handle" />
+          <button type="submit" role="button">Qidirish</button>
         </form>
       </div>
     </div>

@@ -1,4 +1,5 @@
 from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render
 from django.db.models import Count
 from django.views.generic import TemplateView, DetailView, CreateView
@@ -42,7 +43,14 @@ class ShopView(FilterView):
     template_name = 'shop.html'
     context_object_name = 'books'
     filterset_class = BookFilter
-    paginate_by = 1
+    paginate_by = 6
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        search = self.request.GET.get('search', None)
+        if search:
+            qs = qs.filter(title__contains=search)
+        return qs
 
 
 class AboutView(TemplateView):

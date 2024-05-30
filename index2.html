@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Havola Qisqartiruvchi</h3>
+                        <form id="url-form">
+                            <div class="form-group">
+                                <label for="long-url">Havolangizni kiriting:</label>
+                                <input type="url/text" id="long-url" name="long-url" class="form-control" placeholder="https://masalan.uz" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Qisqartirish</button>
+                        </form>
+                        <div class="short-url mt-4" id="short-url" style="display: none;">
+                            <p>Shortened URL: <a href="#" target="_blank" id="short-url-link"></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('url-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const longUrl = document.getElementById('long-url').value;
+            
+            // Simulating the URL shortening process
+            const shortUrl = 'https://short.url/' + btoa(longUrl).slice(0, 8); // Simple encoding to create a short URL
+
+            const shortUrlContainer = document.getElementById('short-url');
+            const shortUrlLink = document.getElementById('short-url-link');
+            
+            shortUrlLink.href = shortUrl;
+            shortUrlLink.textContent = shortUrl;
+            shortUrlContainer.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
